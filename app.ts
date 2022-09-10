@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 app.use(
   cors({
-    origin: "https://zettel-eight.vercel.app/",
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );

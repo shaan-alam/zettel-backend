@@ -76,7 +76,7 @@ router.get("/api/auth/github", async (req: Request, res: Response) => {
     httpOnly: true,
   });
 
-  return res.redirect("https://zettel-eight.vercel.app/");
+  return res.redirect("http://localhost:3000");
 });
 
 /**
