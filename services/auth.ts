@@ -20,19 +20,14 @@ export const getAccessToken = async <T>(code: T) => {
   }
 };
 
-// export const getGitHubUser = async (accessToken: string | null) => {
-//   const client = getOctoKit(accessToken);
+export const getGithubUser = async (token: string) => {
+  const client = getOctoKit(token);
 
-//   try {
-//     const { data } = await axios.get("http://api.github.com/user", {
-//       headers: {
-//         Authorization: `Bearer ${accessToken}`,
-//       },
-//     });
-
-//     return data;
-//   } catch (err) {
-//     console.log("Cannot get user data");
-//     throw err;
-//   }
-// };
+  try {
+    const { data: user } = await client.request("GET /user", {});
+    return user;
+  } catch (err) {
+    console.log(err);
+    console.log("Error getting user's data!!");
+  }
+};
